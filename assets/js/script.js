@@ -77,7 +77,7 @@ class Calculator {
       case '-':
         computation = prev - current
         break
-      case '*':
+      case 'x':
         computation = prev * current
         break
       case '÷':
@@ -86,9 +86,18 @@ class Calculator {
       default:
         return
     }
+    // #
+    if (document.getElementById("hty").innerHTML.search("Data") != -1){
+      document.getElementById("hty").innerHTML = "";
+    }
+    if (c >= 8){
+      document.getElementById(`l${c % 8}`).remove();
+    }
+    document.getElementById("hty").insertAdjacentHTML("afterbegin",`<div class="output lkg" id="l${c % 8}" style="height: 75px;width: 379px;background: var(--bs-light-text-emphasis);color: var(--bs-body-bg);font-family: ABeeZee, sans-serif;font-size:22px;border: 7px solid var(--bs-body-color);">${prev} ${this.operation} ${current} = ${computation}</div>\n`);
     this.currentOperand = computation
     this.operation = undefined
     this.previousOperand = ''
+    c+=1;
   }
 
   /**
@@ -133,7 +142,9 @@ class Calculator {
   }
 }
 
-
+// #
+document.getElementById("hty").innerHTML += '<div class="lkg" style="background-color:var(--bs-orange);font-size:35px;">No Data</div>'
+var c = 0;
 /* These lines of code are selecting various HTML elements from the DOM using their data attributes. */
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
