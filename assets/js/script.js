@@ -93,7 +93,7 @@ class Calculator {
     if (c >= 8){
       document.getElementById(`l${c % 8}`).remove();
     }
-    document.getElementById("hty").insertAdjacentHTML("afterbegin",`<div class="output lkg" id="l${c % 8}" style="height: 75px;width: 379px;background: var(--bs-light-text-emphasis);color: var(--bs-body-bg);font-family: ABeeZee, sans-serif;font-size:22px;border: 7px solid var(--bs-body-color);">${prev} ${this.operation} ${current} = ${computation}</div>\n`);
+    document.getElementById("hty").insertAdjacentHTML("afterbegin",`<div class="output lkg" id="l${c % 8}" style="height: 75px;background: var(--bs-light-text-emphasis);color: var(--bs-body-bg);font-family: ABeeZee, sans-serif;font-size:22px;border: 7px solid var(--bs-body-color);">${prev} ${this.operation} ${current} = ${computation}</div>\n`);
     this.currentOperand = computation
     this.operation = undefined
     this.previousOperand = ''
